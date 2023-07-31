@@ -18,7 +18,9 @@ RUN go build -o main ./main.go
 
 FROM ubuntu
 
-# RUN apt update
+RUN apt update
+RUN apt-get install -y libzmq3-dev
+RUN apt-get install -y libczmq-dev
 # RUN apt install -y ca-certificates
 COPY --from=0 /go/src/app/main .
 
